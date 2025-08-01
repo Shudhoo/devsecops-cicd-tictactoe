@@ -174,11 +174,11 @@ jobs:
                 sed -i "s|image: ${REGISTRY}/${GITHUB_REPOSITORY}:.*|image: ${NEW_IMAGE}|" kubernetes/deployment.yaml
 
                 echo "Update Deployment to use image: ${NEW_IMAGE}"
-                grep -A 1 "image:" Kubernetes/deployment.yaml
+                grep -A 1 "image:" kubernetes/deployment.yaml
 
             - name: Commit and Push Changes
               run: |
-                git add Kubernetes/deployment.yaml
+                git add kubernetes/deployment.yaml
                 git commit -m "Update deployment to use new image ${IMAGE_TAG}"
                 git push 
 
