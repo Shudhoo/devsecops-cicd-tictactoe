@@ -109,8 +109,8 @@ jobs:
               with:
                 images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
                 tags: |
-                    type=sha, format=long
-                    type=ref, event=branch
+                    type=sha,format=long
+                    type=ref,event=branch
                     latest
             
             - name: Build Docker Image
