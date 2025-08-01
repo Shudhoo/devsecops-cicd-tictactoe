@@ -1,5 +1,5 @@
 # This is CI Pipeline for Tic Tac Toe project
-# It runs on every push to the main branch and on pull requests
+# It runs on every push to the main branch and on pull requests 
 
 name: Tic Tac Toe CI
 
