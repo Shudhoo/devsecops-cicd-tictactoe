@@ -47,9 +47,17 @@ jobs:
             - name: Install Project Dependencies
               run: npm ci
 
-            - name: Run Linting
-              run: npm run lint
+            - name: Run Linting & Save Linting Reports
+              run: |
+                mkdir -p reports
+                npm run lint -- --format json --output-file reports/lint-report.json
 
+            - name: Upload Linting Report
+              uses: actions/upload-artifact@v4
+              with:
+                name: Lint-Report
+                path: reports/lint-report.json
+                
     Build:
         name: Build Project
         runs-on: ubuntu-latest
