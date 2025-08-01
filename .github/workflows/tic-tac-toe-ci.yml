@@ -110,6 +110,8 @@ jobs:
                 images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
                 tags: |
                     type=sha, format=long
+                    type=ref, event=branch
+                    latest
             
             - name: Build Docker Image
               uses: docker/build-push-action@v5
@@ -135,6 +137,7 @@ jobs:
               uses: docker/build-push-action@v5
               with:
                 context: .
+                file: Dockerfile
                 push: true
                 tags: ${{ steps.meta.outputs.tags }}
                 labels: ${{ steps.meta.outputs.labels }}
