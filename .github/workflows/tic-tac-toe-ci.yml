@@ -165,7 +165,7 @@ jobs:
 
             - name: Update Kubernetes Deployment
               env:
-                IMAGE_TAG: ${{ steps.meta.outputs.tags }}
+                IMAGE_TAG: ${{ github.sha }}
                 REGISTRY: ghcr.io
                 GITHUB_REPOSITORY: ${{ github.repository }}
               run: |
