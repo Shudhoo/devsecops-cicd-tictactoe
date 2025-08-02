@@ -169,7 +169,7 @@ jobs:
                 REGISTRY: ghcr.io
                 GITHUB_REPOSITORY: ${{ github.repository }}
               run: |
-                NEW_IMAGE="${REGISTRY}/${GITHUB_REPOSITORY}:${IMAGE_TAG}"
+                NEW_IMAGE="${REGISTRY}/${GITHUB_REPOSITORY}:sha-${IMAGE_TAG}"
 
                 sed -i "s|image: ${REGISTRY}/${GITHUB_REPOSITORY}:.*|image: ${NEW_IMAGE}|" kubernetes/deployment.yaml
 
